@@ -10,7 +10,6 @@ function formatDate(d: string) {
 }
 
 export default function HomePage() {
-  const pi = MEMBERS.find((m) => m.role === "pi")!;
   const recentPubs = PUBLICATIONS.slice(0, 4);
   const recentNews = [...NEWS].sort((a, b) => b.date.localeCompare(a.date)).slice(0, 4);
 
