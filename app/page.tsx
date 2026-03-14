@@ -262,11 +262,6 @@ export default function HomePage() {
                   <MemberAvatar member={member} size="lg" className="mx-auto mb-4" />
                   <h4 className="font-semibold text-stone-900 text-sm">{member.name}</h4>
                   <p className="text-xs text-stone-500 mt-0.5">{member.roleLabel}</p>
-                  {member.role === "pi" && (
-                    <div className="mt-2">
-                      <span className="text-xs text-orange-600 font-medium">PI</span>
-                    </div>
-                  )}
                 </div>
               </div>
             ))}
