@@ -49,6 +49,7 @@ export default function Navbar() {
     <header
       ref={headerRef}
       className="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
+      style={{ fontFamily: "'Rajdhani', sans-serif" }}
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
@@ -62,7 +63,7 @@ export default function Navbar() {
                 className="w-full h-full object-contain"
               />
             </div>
-            <span className={`font-bold text-xl transition-colors duration-300 ${isTransparent ? "text-white" : "text-stone-900"}`}>
+            <span className={`font-bold text-2xl transition-colors duration-300 ${isTransparent ? "text-white" : "text-stone-900"}`}>
               H2CI Lab
             </span>
           </Link>
@@ -76,7 +77,7 @@ export default function Navbar() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`nav-link pb-0.5 text-sm ${isActive && !isTransparent ? "active" : ""} ${
+                  className={`nav-link pb-0.5 text-lg font-semibold ${isActive && !isTransparent ? "active" : ""} ${
                     isTransparent ? "!text-white/80 hover:!text-white" : ""
                   }`}
                 >

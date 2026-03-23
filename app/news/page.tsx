@@ -1,9 +1,5 @@
 import type { Metadata } from "next";
-import {
-  NEWS,
-  CATEGORY_LABEL,
-  CATEGORY_COLOR,
-} from "@/lib/data";
+import { NEWS } from "@/lib/data";
 
 export const metadata: Metadata = {
   title: "News",
@@ -16,53 +12,88 @@ function formatDate(d: string) {
   return date.toLocaleDateString("en-US", { year: "numeric", month: "short" });
 }
 
+const TIMELINE_COLOR = "#A61955";
+const CARD_GRADIENT = "linear-gradient(90deg, #F6A700, #CE602A, #A61955)";
+
+function NewsCard({ item, isLeft }: { item: (typeof NEWS)[number]; isLeft: boolean }) {
+  return (
+    <div className="p-px rounded-xl" style={{ background: CARD_GRADIENT }}>
+      <div className="bg-white rounded-xl">
+        {/* Content */}
+        <div className="px-6 py-5">
+          <p className={`text-stone-900 text-base font-bold leading-snug mb-2 ${isLeft ? "text-right" : "text-left"}`}>
+            {item.title}
+          </p>
+          <p className={`text-stone-600 text-sm leading-relaxed ${isLeft ? "text-right" : "text-left"}`}>
+            {item.content}
+          </p>
+          <p className={`text-stone-400 text-xs mt-2 ${isLeft ? "text-right" : "text-left"}`}>
+            {formatDate(item.date)}
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export default function NewsPage() {
   const sorted = [...NEWS].sort((a, b) => b.date.localeCompare(a.date));
 
   return (
     <div className="py-16 sm:py-24">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Page header */}
-        <div className="mb-16">
-          <div className="brand-divider w-10 mb-5" />
+        <div className="mb-16 text-center">
+          <div className="brand-divider w-24 mb-5 mx-auto" />
           <h1 className="text-4xl sm:text-5xl font-extrabold text-stone-900 tracking-tight">
             News
           </h1>
         </div>
 
-        {/* News list */}
-        <div className="space-y-4">
-          {sorted.map((item) => (
-            <div
-              key={item.id}
-              className="card-hover bg-white rounded-xl border border-stone-100 shadow-sm p-5 flex gap-5 items-start"
-            >
-              <div className="flex-shrink-0 w-20 text-right">
-                <span className="text-xs font-semibold text-stone-400 leading-tight block">
-                  {formatDate(item.date)}
-                </span>
-              </div>
-              <div className="flex-1 min-w-0">
-                <div className="flex items-center gap-2 mb-1.5 flex-wrap">
-                  <span className={`text-xs font-semibold px-2.5 py-0.5 rounded-full ${CATEGORY_COLOR[item.category]}`}>
-                    {CATEGORY_LABEL[item.category]}
-                  </span>
+        {/* Timeline */}
+        <div className="relative">
+          {/* Vertical center line */}
+          <div
+            className="absolute left-1/2 top-0 bottom-0 w-0.5 -translate-x-1/2"
+            style={{ backgroundColor: TIMELINE_COLOR }}
+          />
+          {/* Top dot */}
+          <div
+            className="absolute left-1/2 top-0 w-3 h-3 rounded-full -translate-x-1/2 -translate-y-1.5"
+            style={{ backgroundColor: TIMELINE_COLOR }}
+          />
+
+          <div className="space-y-10 pb-8">
+            {sorted.map((item, i) => {
+              const isLeft = i % 2 === 0;
+              return (
+                <div key={item.id} className="flex items-start w-full">
+                  {isLeft ? (
+                    <>
+                      <div className="w-[45%]">
+                        <NewsCard item={item} isLeft={true} />
+                      </div>
+                      <div className="w-[5%] pt-8 flex items-center">
+                        <div className="w-full h-0.5" style={{ backgroundColor: TIMELINE_COLOR }} />
+                      </div>
+                      <div className="w-[50%]" />
+                    </>
+                  ) : (
+                    <>
+                      <div className="w-[50%]" />
+                      <div className="w-[5%] pt-8 flex items-center">
+                        <div className="w-full h-0.5" style={{ backgroundColor: TIMELINE_COLOR }} />
+                      </div>
+                      <div className="w-[45%]">
+                        <NewsCard item={item} isLeft={false} />
+                      </div>
+                    </>
+                  )}
                 </div>
-                <p className="text-stone-800 text-sm leading-relaxed">{item.content}</p>
-                {item.link && (
-                  <a
-                    href={item.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1 mt-2 text-xs font-medium text-orange-600 hover:text-orange-700 transition-colors"
-                  >
-                    View →
-                  </a>
-                )}
-              </div>
-            </div>
-          ))}
+              );
+            })}
+          </div>
         </div>
 
         {sorted.length === 0 && (

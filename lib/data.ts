@@ -52,7 +52,7 @@ export const MEMBERS: Member[] = [
     roleLabel: "Principal Investigator",
     affiliation: "Assistant Professor, Dept. of CSE / GSAI, POSTECH",
     bio: "I research at the intersection of HCI, CSCW, and Health. My work examines how health monitoring technology can better account for the infrastructural complexity of clinical and public health care — through interviews, surveys, log analysis, system prototyping, and real-world field deployments.",
-    research: ["Health Monitoring Technology", "Conversational AI for Health", "CSCW", "HCI"],
+    research: ["Professor"],
     website: "https://eunkyungjo.com",
     email: "eunkyungjo@postech.ac.kr",
     startYear: 2026,
@@ -66,7 +66,7 @@ export const MEMBERS: Member[] = [
     roleLabel: "Ph.D. Student",
     affiliation: "Dept. of CSE, POSTECH",
     bio: "I aim to support human well-being and meaningful learning in real-world contexts by bridging social computing and educational technology. Currently I focus on socially withdrawn youth — exploring how online communities can serve as a bridge back to society.",
-    research: ["Social Computing", "Educational Technology", "Human Well-being"],
+    research: ["Social Computing", "Educational Technology"],
     website: "https://sangeunseo.com",
     email: "sangeunseo@postech.ac.kr",
     startYear: 2026,
@@ -80,7 +80,7 @@ export const MEMBERS: Member[] = [
     roleLabel: "Ph.D. Student",
     affiliation: "Dept. of CSE, POSTECH",
     bio: "My research sits at the intersection of HCI and affective computing, focusing on how conversational AI conveys empathy nonverbally. I'm interested in the gap between what AI says and what it communicates — and what that means for people in emotionally meaningful interactions.",
-    research: ["Affective Computing", "Conversational AI", "Nonverbal Communication"],
+    research: ["Human-AI Interaction", "Conversational AI"],
     website: "https://jiminlee.me",
     email: "leejm21@postech.ac.kr",
     startYear: 2026,
@@ -254,6 +254,7 @@ export interface NewsItem {
   id: string;
   date: string;        // "2026-02"  (YYYY-MM 또는 YYYY-MM-DD)
   category: NewsCategory;
+  title: string;
   content: string;
   link?: string;       // optional URL
 }
@@ -262,36 +263,30 @@ export const NEWS: NewsItem[] = [
   {
     id: "news-1",
     date: "2026-03",
-    category: "join",
-    content: "H2CI Lab officially launched at POSTECH! Welcome to Sangeun, Jimin, and Jumi!",
+    category: "misc",
+    title: "NRF Young Researcher Program",
+    content: "H2CI Lab has been selected for the National Research Foundation of Korea's Young Researcher Support Program.",
   },
   {
     id: "news-2",
     date: "2026-02",
     category: "award",
-    content: "Prof. Jo received the 2026 ACM SIGCHI Outstanding Dissertation Award.",
-    link: "https://sigchi.org/awards/sigchi-award-recipients/2026-sigchi-award-recipients/",
+    title: "2026 ACM SIGCHI Outstanding Dissertation Award",
+    content: "Prof. Eunkyung Jo has been recognized with the ACM SIGCHI Outstanding Dissertation Award.",
   },
   {
     id: "news-3",
-    date: "2025-04",
-    category: "paper",
-    content: "Paper accepted at CHI 2025 — \"Understanding Public Agencies' Expectations and Realities of AI-Driven Chatbots for Public Health Monitoring\"",
-    link: "https://doi.org/10.1145/3706598.3714080",
+    date: "2026-02",
+    category: "join",
+    title: "H2CI Lab is officially open!",
+    content: "We are excited to welcome our first members — Sangeun, Jimin, and Jumi!",
   },
   {
-    id: "news-5",
-    date: "2024-01",
-    category: "paper",
-    content: "Paper accepted at CHI 2024 — \"Understanding the Impact of Long-Term Memory on Self-Disclosure with LLM-Driven Chatbots\"",
-    link: "https://doi.org/10.1145/3613904.3642420",
-  },
-  {
-    id: "news-6",
-    date: "2023-04",
-    category: "award",
-    content: "Best Paper Award (Top 1%) at CHI 2023 — \"Understanding the Benefits and Challenges of Deploying Conversational AI Leveraging LLMs for Public Health Intervention\"",
-    link: "https://dl.acm.org/doi/10.1145/3544548.3581503",
+    id: "news-4",
+    date: "2025-07",
+    category: "misc",
+    title: "Prof. Jo joins POSTECH",
+    content: "Prof. Eunkyung Jo has joined the Department of CSE at POSTECH as an Assistant Professor.",
   },
 ];
 
