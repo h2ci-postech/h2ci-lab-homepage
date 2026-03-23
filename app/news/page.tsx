@@ -33,9 +33,6 @@ export default function NewsPage() {
           <h1 className="text-4xl sm:text-5xl font-extrabold text-white mb-3 tracking-tight">
             News
           </h1>
-          <p className="text-white/80 text-lg">
-            Papers, awards, talks, and lab updates
-          </p>
         </div>
       </section>
 

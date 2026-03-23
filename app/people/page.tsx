@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { MEMBERS } from "@/lib/data";
+import { MEMBERS, COLLABORATORS } from "@/lib/data";
 
 export const metadata: Metadata = {
   title: "People",
@@ -23,9 +23,6 @@ export default function PeoplePage() {
           <h1 className="text-4xl sm:text-5xl font-extrabold text-stone-900 tracking-tight mb-3">
             People
           </h1>
-          <p className="text-stone-500 text-lg max-w-xl">
-            Meet the researchers behind H2CI Lab — driven by curiosity, care, and creativity.
-          </p>
         </div>
 
         {/* ── Faculty ─────────────────────────────────────────── */}
@@ -72,10 +69,10 @@ export default function PeoplePage() {
           </section>
         )}
 
-        {/* ── Interns ────────────────────────────────────────── */}
+        {/* ── Undergraduate Interns ──────────────────────────── */}
         {interns.length > 0 && (
           <section className="mb-16">
-            <h2 className="text-2xl font-bold text-stone-900 mb-7">Interns</h2>
+            <h2 className="text-2xl font-bold text-stone-900 mb-7">Undergraduate Interns</h2>
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
               {interns.map((m) => (
                 <MemberCard key={m.id} member={m} />
@@ -83,6 +80,26 @@ export default function PeoplePage() {
             </div>
           </section>
         )}
+
+        {/* ── Collaborators ──────────────────────────────────── */}
+        <section className="mb-16">
+          <h2 className="text-2xl font-bold text-stone-900 mb-7">Collaborators</h2>
+          <ul className="space-y-2">
+            {COLLABORATORS.map((c) => (
+              <li key={c.name} className="text-base">
+                <a
+                  href={c.website}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-semibold text-stone-900 hover:text-orange-600 transition-colors"
+                >
+                  {c.name}
+                </a>
+                <span className="text-stone-400">, {c.affiliation}</span>
+              </li>
+            ))}
+          </ul>
+        </section>
       </div>
     </div>
   );

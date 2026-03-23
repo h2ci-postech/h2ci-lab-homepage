@@ -26,9 +26,6 @@ export default function PublicationsPage() {
           <h1 className="text-4xl sm:text-5xl font-extrabold text-stone-900 tracking-tight mb-3">
             Publications
           </h1>
-          <p className="text-stone-500 text-lg">
-            {PUBLICATIONS.length} publications · Selected work from H2CI Lab
-          </p>
         </div>
 
         {/* Filter bar */}

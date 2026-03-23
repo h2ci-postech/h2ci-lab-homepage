@@ -18,10 +18,6 @@ export default function ResearchPage() {
           <h1 className="text-4xl sm:text-5xl font-extrabold text-stone-900 tracking-tight mb-3">
             Research
           </h1>
-          <p className="text-stone-500 text-lg max-w-2xl">
-            We investigate how technology can support health across diverse real-world contexts —
-            from clinical environments to everyday life.
-          </p>
         </div>
 
         {/* Research areas */}

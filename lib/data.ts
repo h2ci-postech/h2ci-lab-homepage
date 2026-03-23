@@ -336,3 +336,16 @@ export const RESEARCH_AREAS = [
     tags: ["CSCW", "Caregiving", "Digital Wellbeing"],
   },
 ];
+
+export const COLLABORATORS = [
+  {
+    name: "Joel Wester",
+    affiliation: "University of Copenhagen",
+    website: "https://www.joelwester.com/",
+  },
+  {
+    name: "Hyunjoo Na",
+    affiliation: "The Catholic University of Korea",
+    website: "https://nursing.catholic.ac.kr/html/sub02/sub01_2_2.jsp",
+  },
+];
