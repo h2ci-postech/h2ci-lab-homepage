@@ -17,6 +17,9 @@ export const metadata: Metadata = {
     locale: "en_US",
     siteName: "H2CI Lab @ POSTECH",
   },
+  icons: {
+    icon: "/logo_color.svg",
+  },
 };
 
 export default function RootLayout({
