@@ -20,7 +20,7 @@ export default function Navbar() {
 
   useEffect(() => {
     const update = () => {
-      const isScrolled = window.scrollY > 10;
+      const isScrolled = window.scrollY > 50;
       setScrolled(isScrolled);
       const el = headerRef.current;
       if (!el) return;
@@ -44,6 +44,8 @@ export default function Navbar() {
   }, [pathname]);
 
   const isTransparent = !scrolled && pathname === "/";
+  // Logo is hidden while hero logo is visible (home page at top)
+  const logoVisible = !isTransparent;
 
   return (
     <header
@@ -53,17 +55,35 @@ export default function Navbar() {
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          {/* Logo */}
-          <Link href="/" className="flex items-center gap-2.5 group">
-            <div className="relative w-9 h-9 flex-shrink-0">
+          {/* Logo — animates in from hero on scroll */}
+          <Link
+            href="/"
+            className="flex items-center gap-2.5 group"
+            style={{ pointerEvents: logoVisible ? "auto" : "none" }}
+          >
+            <div
+              className="relative w-9 h-9 flex-shrink-0"
+              style={{
+                transition: "opacity 350ms ease, transform 350ms ease",
+                opacity: logoVisible ? 1 : 0,
+                transform: logoVisible ? "scale(1)" : "scale(0.5)",
+              }}
+            >
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src={isTransparent ? "/logo_white.svg" : "/logo_color.svg"}
+                src="/logo_color.svg"
                 alt="H2CI Lab Logo"
                 className="w-full h-full object-contain"
               />
             </div>
-            <span className={`font-bold text-2xl transition-colors duration-300 ${isTransparent ? "text-white" : "text-stone-900"}`}>
+            <span
+              className="font-bold text-2xl text-stone-900"
+              style={{
+                transition: "opacity 350ms ease, transform 350ms ease",
+                opacity: logoVisible ? 1 : 0,
+                transform: logoVisible ? "translateX(0)" : "translateX(-8px)",
+              }}
+            >
               H2CI Lab
             </span>
           </Link>

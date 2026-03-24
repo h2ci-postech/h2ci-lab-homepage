@@ -1,5 +1,5 @@
-import { PUBLICATIONS, RESEARCH_AREAS, NEWS, LAB } from "@/lib/data";
-import HeroCarousel from "@/components/HeroCarousel";
+import { PUBLICATIONS, RESEARCH_AREAS, NEWS } from "@/lib/data";
+import HeroSection from "@/components/HeroSection";
 
 function formatDate(d: string) {
   const parts = d.split("-");
@@ -18,70 +18,7 @@ export default function HomePage() {
   return (
     <div>
       {/* ── Hero ────────────────────────────────────────────── */}
-      <section className="relative min-h-[60vh] flex items-center overflow-hidden -mt-16">
-        {/* 그라디언트 배경 — 항상 유지 */}
-        <div className="absolute inset-0 bg-brand-gradient opacity-[0.92]" />
-
-        {/* Decorative circles */}
-        <div className="absolute top-[-10%] right-[-5%] w-[600px] h-[600px] rounded-full border border-white/10 opacity-30" />
-        <div className="absolute top-[5%] right-[5%] w-[400px] h-[400px] rounded-full border border-white/10 opacity-20" />
-        <div className="absolute bottom-[-5%] left-[-5%] w-[400px] h-[400px] rounded-full border border-white/10 opacity-20" />
-
-        {/* Subtle grid overlay */}
-        <div
-          className="absolute inset-0 opacity-[0.04]"
-          style={{
-            backgroundImage:
-              "linear-gradient(white 1px, transparent 1px), linear-gradient(90deg, white 1px, transparent 1px)",
-            backgroundSize: "60px 60px",
-          }}
-        />
-
-        <div className="relative w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
-          {/* 사진 있으면 → 좌우 반반 / 없으면 → 텍스트 중앙 */}
-          <div className={`flex items-center gap-12 ${LAB.heroPhotos.length > 0 ? "flex-col sm:flex-row" : "justify-center"}`}>
-
-            {/* ── 텍스트 영역 ── */}
-            <div className={LAB.heroPhotos.length > 0 ? "flex-1 min-w-0" : "max-w-3xl text-center sm:text-left"}>
-              {/* Eyebrow */}
-              <div className={`inline-flex items-center gap-2 mb-6 px-3 py-1.5 rounded-full bg-white/15 backdrop-blur-sm border border-white/20 ${LAB.heroPhotos.length === 0 && "mx-auto sm:mx-0"}`}>
-                <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
-                <span className="text-white/90 text-sm font-medium">POSTECH · Pohang, South Korea</span>
-              </div>
-
-              <h1 className="text-5xl sm:text-6xl lg:text-7xl font-extrabold text-white leading-[1.05] tracking-tight mb-6">
-                H2CI
-                <br />
-                <span className="text-white/80 font-light text-4xl sm:text-5xl lg:text-6xl mt-1 block">
-                  Lab
-                </span>
-              </h1>
-
-              <p className="text-xl sm:text-2xl text-white/90 font-light leading-relaxed mb-3">
-                Health &amp; Human-Computer Interaction Lab
-              </p>
-
-              <p className="text-base sm:text-lg text-white/70 leading-relaxed max-w-2xl">
-                We investigate how technology can better support health monitoring,
-                communication, and care — bridging the gap between HCI research and
-                real-world healthcare systems.
-              </p>
-            </div>
-
-            {/* ── 슬라이드쇼 (사진 있을 때만 표시) ── */}
-            {LAB.heroPhotos.length > 0 && (
-              <HeroCarousel photos={LAB.heroPhotos} interval={4000} />
-            )}
-          </div>
-        </div>
-
-        {/* Wave divider */}
-        <div className="absolute bottom-0 left-0 right-0">
-          <svg viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" className="w-full h-16">
-            <path d="M0 80L1440 80L1440 20C1200 60 960 0 720 20C480 40 240 0 0 20L0 80Z" fill="white" />
-          </svg>
-        </div>
-      </section>
+      <HeroSection />
 
       {/* ── News ─────────────────────────────────────────────── */}
       <section className="py-24 bg-white">
