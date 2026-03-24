@@ -60,6 +60,14 @@ export default function Navbar() {
             href="/"
             className="flex items-center gap-2.5 group"
             style={{ pointerEvents: logoVisible ? "auto" : "none" }}
+            onMouseEnter={(e) => {
+              const el = e.currentTarget.querySelector("[data-h2ci]") as HTMLElement | null;
+              if (el) { el.style.backgroundImage = "linear-gradient(135deg, #F5A01A 0%, #E06020 50%, #C2305A 100%)"; el.style.webkitBackgroundClip = "text"; el.style.webkitTextFillColor = "transparent"; el.style.backgroundClip = "text"; }
+            }}
+            onMouseLeave={(e) => {
+              const el = e.currentTarget.querySelector("[data-h2ci]") as HTMLElement | null;
+              if (el) { el.style.backgroundImage = "none"; el.style.webkitBackgroundClip = "unset"; el.style.webkitTextFillColor = "unset"; el.style.backgroundClip = "unset"; }
+            }}
           >
             <div
               className="relative w-9 h-9 flex-shrink-0"
@@ -77,14 +85,14 @@ export default function Navbar() {
               />
             </div>
             <span
-              className="font-bold text-2xl text-stone-900"
+              className="font-bold text-2xl"
               style={{
                 transition: "opacity 350ms ease, transform 350ms ease",
                 opacity: logoVisible ? 1 : 0,
                 transform: logoVisible ? "translateX(0)" : "translateX(-8px)",
               }}
             >
-              H2CI Lab
+              <span data-h2ci="">H2CI&thinsp;Lab</span>
             </span>
           </Link>
 

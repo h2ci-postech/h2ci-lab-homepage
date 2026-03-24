@@ -97,13 +97,39 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── Recent Publications ───────────────────────────────── */}
+      {/* ── Research Areas ────────────────────────────────────── */}
       <section className="py-24 bg-stone-50">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="mb-12">
-            <div className="brand-divider w-10 mb-4" />
+          <div className="text-center mb-14">
+            <div className="brand-divider w-36 mx-auto mb-4" />
+            <h2 className="section-title">Research Areas</h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-7">
+            {RESEARCH_AREAS.map((area) => (
+              <div key={area.title} className="card-hover bg-white rounded-2xl p-7 border border-stone-100 shadow-sm group">
+                <div className="w-12 h-12 rounded-xl bg-brand-subtle flex items-center justify-center text-2xl mb-5 group-hover:scale-110 transition-transform duration-200">
+                  {area.icon}
+                </div>
+                <h3 className="font-bold text-stone-900 text-lg mb-3">{area.title}</h3>
+                <p className="text-stone-500 text-sm leading-relaxed mb-4">{area.description}</p>
+                <div className="flex flex-wrap gap-1.5">
+                  {area.tags.map((tag) => (
+                    <span key={tag} className="tag">{tag}</span>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── Recent Publications ───────────────────────────────── */}
+      <section className="py-24 bg-white">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="mb-12 text-center">
+            <div className="brand-divider w-44 mb-4 mx-auto" />
             <h2 className="section-title">Recent Publications</h2>
-            <p className="section-subtitle">Selected work from the H2CI Lab</p>
           </div>
 
           <div className="space-y-4">
@@ -140,37 +166,6 @@ export default function HomePage() {
               </div>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* ── Research Areas ────────────────────────────────────── */}
-      <section className="py-24 bg-white">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-14">
-            <div className="brand-divider w-10 mx-auto mb-4" />
-            <h2 className="section-title">Research Areas</h2>
-            <p className="section-subtitle max-w-xl mx-auto">
-              At the intersection of health, technology, and human experience
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-7">
-            {RESEARCH_AREAS.map((area) => (
-              <div key={area.title} className="card-hover bg-white rounded-2xl p-7 border border-stone-100 shadow-sm group">
-                <div className="w-12 h-12 rounded-xl bg-brand-subtle flex items-center justify-center text-2xl mb-5 group-hover:scale-110 transition-transform duration-200">
-                  {area.icon}
-                </div>
-                <h3 className="font-bold text-stone-900 text-lg mb-3">{area.title}</h3>
-                <p className="text-stone-500 text-sm leading-relaxed mb-4">{area.description}</p>
-                <div className="flex flex-wrap gap-1.5">
-                  {area.tags.map((tag) => (
-                    <span key={tag} className="tag">{tag}</span>
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
-
         </div>
       </section>
     </div>
