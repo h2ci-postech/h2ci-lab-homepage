@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
+import fs from "fs";
+import path from "path";
 import { MEMBERS, COLLABORATORS } from "@/lib/data";
+import LabPhotoCarousel from "@/components/LabPhotoCarousel";
 
 export const metadata: Metadata = {
   title: "People",
@@ -7,6 +10,12 @@ export const metadata: Metadata = {
 };
 
 export default function PeoplePage() {
+  const labPhotoDir = path.join(process.cwd(), "public", "lab_photo");
+  const labPhotos = fs
+    .readdirSync(labPhotoDir)
+    .filter((f) => /\.(jpe?g|png|webp|gif)$/i.test(f))
+    .map((f) => `/lab_photo/${f}`);
+
   const pi = MEMBERS.find((m) => m.role === "pi")!;
   const phds = MEMBERS.filter((m) => m.role === "phd");
   const masters = MEMBERS.filter((m) => m.role === "ms");
@@ -19,11 +28,16 @@ export default function PeoplePage() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Page header */}
-        <div className="mb-16">
-          <div className="brand-divider w-10 mb-5" />
-          <h1 className="text-4xl sm:text-5xl font-extrabold text-stone-900 tracking-tight mb-3">
+        <div className="mb-8 text-center">
+          <div className="brand-divider w-24 mb-5 mx-auto" />
+          <h1 className="text-4xl sm:text-5xl font-extrabold text-stone-900 tracking-tight">
             People
           </h1>
+        </div>
+
+        {/* Lab photo carousel */}
+        <div className="mb-16">
+          <LabPhotoCarousel photos={labPhotos} />
         </div>
 
         {/* ── Faculty ─────────────────────────────────────────── */}

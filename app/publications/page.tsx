@@ -21,9 +21,9 @@ export default function PublicationsPage() {
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Page header */}
-        <div className="mb-12">
-          <div className="brand-divider w-10 mb-5" />
-          <h1 className="text-4xl sm:text-5xl font-extrabold text-stone-900 tracking-tight mb-3">
+        <div className="mb-12 text-center">
+          <div className="brand-divider w-36 mb-5 mx-auto" />
+          <h1 className="text-4xl sm:text-5xl font-extrabold text-stone-900 tracking-tight">
             Publications
           </h1>
         </div>
@@ -86,7 +86,7 @@ export default function PublicationsPage() {
             return (
               <div key={year} className="mb-12">
                 <div className="flex items-center gap-3 mb-6">
-                  <span className="text-2xl font-extrabold text-gradient">{year}</span>
+                  <span className="text-2xl font-extrabold text-stone-900">{year}</span>
                   <div className="flex-1 h-px bg-stone-100" />
                 </div>
                 <div className="space-y-4">
