@@ -271,22 +271,29 @@ export const NEWS: NewsItem[] = [
     id: "news-2",
     date: "2026-02",
     category: "award",
-    title: "2026 ACM SIGCHI Outstanding Dissertation Award",
+    title: "🏆 2026 ACM SIGCHI Outstanding Dissertation Award",
     content: "Prof. Eunkyung Jo has been recognized with the ACM SIGCHI Outstanding Dissertation Award.",
   },
   {
     id: "news-3",
     date: "2026-02",
     category: "join",
-    title: "H2CI Lab is officially open!",
+    title: "🎉 H2CI Lab is officially open!",
     content: "We are excited to welcome our first members — Sangeun, Jimin, and Jumi!",
+  },
+  {
+    id: "news-5",
+    date: "2025-09",
+    category: "misc",
+    title: "CHI 2026 Associate Chair",
+    content: "Dr. Jo served as an Associate Chair for the Understanding People — Qualitative Methods Subcommittee at CHI 2026.",
   },
   {
     id: "news-4",
     date: "2025-07",
     category: "misc",
-    title: "Prof. Jo joins POSTECH",
-    content: "Prof. Eunkyung Jo has joined the Department of CSE at POSTECH as an Assistant Professor.",
+    title: "Dr. Jo joins POSTECH",
+    content: "Prof. Eunkyung Jo has joined POSTECH as an Assistant Professor in the Department of Computer Science and Engineering and the Graduate School of Artificial Intelligence.",
   },
 ];
 

@@ -21,7 +21,7 @@ const config: Config = {
         sans: ["Inter", "system-ui", "sans-serif"],
       },
       backgroundImage: {
-        "brand-gradient": "linear-gradient(90deg, #F6A700 0%, #CE602A 35%, #A61955 100%)",
+        "brand-gradient": "linear-gradient(90deg, #F6A700 0%, #CE602A 40%, #A61955 100%)",
         "brand-gradient-subtle": "linear-gradient(135deg, #FFF5EE 0%, #FFF0F5 100%)",
       },
     },

@@ -1,4 +1,4 @@
-import { PUBLICATIONS, RESEARCH_AREAS, NEWS, CATEGORY_LABEL, CATEGORY_COLOR, LAB } from "@/lib/data";
+import { PUBLICATIONS, RESEARCH_AREAS, NEWS, LAB } from "@/lib/data";
 import HeroCarousel from "@/components/HeroCarousel";
 
 function formatDate(d: string) {
@@ -9,7 +9,11 @@ function formatDate(d: string) {
 
 export default function HomePage() {
   const recentPubs = PUBLICATIONS.slice(0, 4);
-  const recentNews = [...NEWS].sort((a, b) => b.date.localeCompare(a.date)).slice(0, 4);
+  const recentNews = [...NEWS].sort((a, b) => b.date.localeCompare(a.date)).slice(0, 3);
+
+  const TIMELINE_COLOR = "#A61955";
+  const CARD_GRADIENT_LEFT  = "linear-gradient(90deg, #F6A700, #CE602A, #A61955)";
+  const CARD_GRADIENT_RIGHT = "linear-gradient(90deg, #A61955, #CE602A, #F6A700)";
 
   return (
     <div>
@@ -82,35 +86,76 @@ export default function HomePage() {
       {/* ── News ─────────────────────────────────────────────── */}
       <section className="py-24 bg-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="mb-12">
-            <div className="brand-divider w-10 mb-4" />
+          <div className="mb-12 text-center">
+            <div className="brand-divider w-32 mb-4 mx-auto" />
             <h2 className="section-title">Latest News</h2>
-            <p className="section-subtitle">Papers, awards &amp; lab updates</p>
           </div>
 
-          <div className="space-y-3">
-            {recentNews.map((item) => (
-              <div
-                key={item.id}
-                className="card-hover bg-white rounded-xl border border-stone-100 shadow-sm p-5 flex gap-5 items-start"
+          <div className="relative">
+            {/* Vertical center line */}
+            <div
+              className="absolute left-1/2 top-0 bottom-0 w-0.5 -translate-x-1/2"
+              style={{ backgroundColor: TIMELINE_COLOR }}
+            />
+            {/* Top dot */}
+            <div
+              className="absolute left-1/2 top-0 w-3 h-3 rounded-full -translate-x-1/2 -translate-y-1.5"
+              style={{ backgroundColor: TIMELINE_COLOR }}
+            />
+
+            <div className="space-y-6 pb-4">
+              {recentNews.map((item, i) => {
+                const isLeft = i % 2 === 0;
+                return (
+                  <div key={item.id} className="flex items-start w-full">
+                    {isLeft ? (
+                      <>
+                        <div className="w-[45%]">
+                          <div className="p-px rounded-xl" style={{ background: CARD_GRADIENT_LEFT }}>
+                            <div className="bg-white rounded-xl px-5 py-4">
+                              <p className="text-stone-900 text-sm font-bold leading-snug mb-1 text-right">{item.title}</p>
+                              <p className="text-stone-600 text-xs leading-relaxed text-right">{item.content}</p>
+                              <p className="text-stone-400 text-xs mt-1.5 text-right">{formatDate(item.date)}</p>
+                            </div>
+                          </div>
+                        </div>
+                        <div className="w-[5%] pt-6 flex items-center">
+                          <div className="w-full h-0.5" style={{ backgroundColor: TIMELINE_COLOR }} />
+                        </div>
+                        <div className="w-[50%]" />
+                      </>
+                    ) : (
+                      <>
+                        <div className="w-[50%]" />
+                        <div className="w-[5%] pt-6 flex items-center">
+                          <div className="w-full h-0.5" style={{ backgroundColor: TIMELINE_COLOR }} />
+                        </div>
+                        <div className="w-[45%]">
+                          <div className="p-px rounded-xl" style={{ background: CARD_GRADIENT_RIGHT }}>
+                            <div className="bg-white rounded-xl px-5 py-4">
+                              <p className="text-stone-900 text-sm font-bold leading-snug mb-1 text-left">{item.title}</p>
+                              <p className="text-stone-600 text-xs leading-relaxed text-left">{item.content}</p>
+                              <p className="text-stone-400 text-xs mt-1.5 text-left">{formatDate(item.date)}</p>
+                            </div>
+                          </div>
+                        </div>
+                      </>
+                    )}
+                  </div>
+                );
+              })}
+            </div>
+
+            {/* More button */}
+            <div className="flex justify-center pt-2">
+              <a
+                href="/news"
+                className="relative z-10 w-16 h-16 rounded-full flex items-center justify-center text-white text-sm font-semibold shadow-md transition-opacity hover:opacity-80"
+                style={{ background: CARD_GRADIENT_LEFT }}
               >
-                <div className="flex-shrink-0 w-20 text-right">
-                  <span className="text-xs font-semibold text-stone-400">{formatDate(item.date)}</span>
-                </div>
-                <div className="flex-1 min-w-0">
-                  <span className={`text-xs font-semibold px-2.5 py-0.5 rounded-full mb-1.5 inline-block ${CATEGORY_COLOR[item.category]}`}>
-                    {CATEGORY_LABEL[item.category]}
-                  </span>
-                  <p className="text-stone-800 text-sm leading-relaxed">{item.content}</p>
-                  {item.link && (
-                    <a href={item.link} target="_blank" rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1 mt-1.5 text-xs font-medium text-orange-600 hover:text-orange-700 transition-colors">
-                      View →
-                    </a>
-                  )}
-                </div>
-              </div>
-            ))}
+                More
+              </a>
+            </div>
           </div>
         </div>
       </section>

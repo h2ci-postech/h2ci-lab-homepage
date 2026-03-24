@@ -13,11 +13,12 @@ function formatDate(d: string) {
 }
 
 const TIMELINE_COLOR = "#A61955";
-const CARD_GRADIENT = "linear-gradient(90deg, #F6A700, #CE602A, #A61955)";
+const CARD_GRADIENT_LEFT  = "linear-gradient(90deg, #F6A700, #CE602A, #A61955)";
+const CARD_GRADIENT_RIGHT = "linear-gradient(90deg, #A61955, #CE602A, #F6A700)";
 
 function NewsCard({ item, isLeft }: { item: (typeof NEWS)[number]; isLeft: boolean }) {
   return (
-    <div className="p-px rounded-xl" style={{ background: CARD_GRADIENT }}>
+    <div className="p-px rounded-xl" style={{ background: isLeft ? CARD_GRADIENT_LEFT : CARD_GRADIENT_RIGHT }}>
       <div className="bg-white rounded-xl">
         {/* Content */}
         <div className="px-6 py-5">
