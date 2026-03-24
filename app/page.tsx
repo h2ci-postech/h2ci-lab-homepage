@@ -150,7 +150,7 @@ export default function HomePage() {
             <div className="flex justify-center pt-2">
               <a
                 href="/news"
-                className="relative z-10 w-16 h-16 rounded-full flex items-center justify-center text-white text-sm font-semibold shadow-md transition-opacity hover:opacity-80"
+                className="relative z-10 w-16 h-16 rounded-full flex items-center justify-center text-white text-sm font-semibold shadow-md transition-transform hover:scale-110"
                 style={{ background: CARD_GRADIENT_LEFT }}
               >
                 More
