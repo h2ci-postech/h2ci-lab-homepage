@@ -12,6 +12,7 @@ export default function PeoplePage() {
   const masters = MEMBERS.filter((m) => m.role === "ms");
   const undergrads = MEMBERS.filter((m) => m.role === "undergrad");
   const interns = MEMBERS.filter((m) => m.role === "intern");
+  const admins = MEMBERS.filter((m) => m.role === "admin");
 
   return (
     <div className="py-16 sm:py-24">
@@ -75,6 +76,18 @@ export default function PeoplePage() {
             <h2 className="text-2xl font-bold text-stone-900 mb-7">Undergraduate Interns</h2>
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
               {interns.map((m) => (
+                <MemberCard key={m.id} member={m} />
+              ))}
+            </div>
+          </section>
+        )}
+
+        {/* ── Administrator ──────────────────────────────────── */}
+        {admins.length > 0 && (
+          <section className="mb-16">
+            <h2 className="text-2xl font-bold text-stone-900 mb-7">Administrator</h2>
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
+              {admins.map((m) => (
                 <MemberCard key={m.id} member={m} />
               ))}
             </div>
