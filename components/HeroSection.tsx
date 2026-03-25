@@ -82,9 +82,7 @@ export default function HeroSection() {
 
             {/* Description */}
             <p className="text-base sm:text-lg text-white/70 leading-relaxed max-w-2xl">
-              We investigate how technology can better support health monitoring,
-              communication, and care — bridging the gap between HCI research and
-              real-world healthcare systems.
+              We focus on improving the design and real-world use of collaborative health technology by understanding stakeholder needs, developing novel systems, and evaluating these systems in real-world settings.
             </p>
           </div>
         </div>
