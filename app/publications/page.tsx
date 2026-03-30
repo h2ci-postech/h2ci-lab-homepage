@@ -65,7 +65,16 @@ export default function PublicationsPage() {
                         </h3>
 
                         {/* Authors */}
-                        <p className="text-stone-500 text-sm mb-2">{pub.authors}</p>
+                        <p className="text-stone-500 text-sm mb-2">
+                          {pub.authors.split(", ").map((author, i, arr) => (
+                            <span key={i}>
+                              {author === "Eunkyung Jo"
+                                ? <span className="text-stone-900 underline underline-offset-2">{author}</span>
+                                : author}
+                              {i < arr.length - 1 ? ", " : ""}
+                            </span>
+                          ))}
+                        </p>
 
                         {/* Venue */}
                         <p className="text-sm italic font-medium text-stone-700">
