@@ -2,7 +2,7 @@
 
 POSTECH H2CI Lab (Health and Human-Computer Interaction Lab) 공식 홈페이지입니다.
 
-🌐 **사이트 주소:** https://h2ci-lab-homepage.vercel.app
+🌐 **사이트 주소:** [https://h2ci-lab-homepage-one.vercel.app](https://h2ci-lab.com/)
 
 ---
 
