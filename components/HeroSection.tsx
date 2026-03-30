@@ -70,15 +70,29 @@ export default function HeroSection() {
             </h1>
 
             {/* Faculty */}
-            <p className="text-base sm:text-lg text-white/80 mb-6">
-              Led by Dr. Eunkyung Jo
+            <p className="text-base sm:text-lg text-white/80 mb-1">
+              Led by Dr.{" "}
+              <a
+                href="https://eunkyungjo.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-semibold hover:text-white transition-colors"
+              >
+                Eunkyung Jo
+              </a>
             </p>
 
-            {/* Location badge */}
-            <div className="inline-flex items-center gap-2 mb-6 px-3 py-1.5 rounded-full bg-white/15 backdrop-blur-sm border border-white/20 w-fit">
-              <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
-              <span className="text-white/90 text-sm font-medium">POSTECH · Pohang, South Korea</span>
-            </div>
+            {/* Location */}
+            <p className="text-base sm:text-lg text-white/80 mb-6">
+              <a
+                href="https://cse.postech.ac.kr/csepostech"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-white transition-colors"
+              >
+                Department of Computer Science and Engineering, POSTECH
+              </a>
+            </p>
 
             {/* Description */}
             <p className="text-base sm:text-lg text-white/70 leading-relaxed max-w-2xl">

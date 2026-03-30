@@ -1,129 +1,10 @@
 import type { Metadata } from "next";
+import { RESEARCH_AREAS } from "@/lib/data";
 
 export const metadata: Metadata = {
   title: "Research",
   description: "Research areas and projects at H2CI Lab, POSTECH.",
 };
-
-const THEMES = [
-  {
-    title: "Technology for Wellbeing",
-    description:
-      "Designing and evaluating technologies that support the physical and mental wellbeing of individuals and families.",
-    cards: [
-      {
-        type: "student",
-        label: "Student Research",
-        title: "Intervention for Digital Wellbeing",
-        desc: "Exploring self-control technologies that help people stay in charge of their own screen time. With a focus on infinite scrolling environments like short-form video, we investigate how to preserve human autonomy and prevent mindless scrolling through thoughtful technical interventions.",
-        nickname: null,
-        venue: null,
-        link: null,
-        award: null,
-        ledBy: { name: "Jumi Kim", url: "https://jglosa.github.io" },
-        image: "/research/wellbeing/digitalwellbeing.png",
-      },
-      {
-        type: "pub",
-        label: "CHI 2022",
-        title: "Flexible Tools for Clinical Care",
-        desc: "Discontinuing psychiatric medication is a complex, long-term process that requires careful coordination between clinicians and patients. This research explores how flexible digital tools can support clinicians in planning and adjusting personalized tapering regimens over time.",
-        nickname: "Flexible Digital Tool for Psychiatric Drug Discontinuation",
-        venue: "ACM CHI 2022",
-        link: "https://dl.acm.org/doi/10.1145/3491102.3502206",
-        award: null,
-        ledBy: null,
-        image: "/research/wellbeing/psy_drugs.png",
-      },
-      {
-        type: "pub",
-        label: "CSCW 2022",
-        title: "Supporting Families of Autistic Children",
-        desc: "Caregivers of autistic children often struggle to identify patterns behind challenging behaviors. This research designs a data-driven tracking system that helps caregivers log and interpret behavioral data, enabling more informed and timely interventions.",
-        nickname: "Data-Driven Interventions for Autistic Children via Caregiver Tracking",
-        venue: "PACM CSCW 2022",
-        link: "https://dl.acm.org/doi/10.1145/3512939",
-        award: null,
-        ledBy: null,
-        image: "/research/wellbeing/genauti.png",
-      },
-    ],
-  },
-  {
-    title: "Social Isolation Intervention",
-    description:
-      "Investigating technological interventions and monitoring systems for individuals experiencing social isolation.",
-    cards: [
-      {
-        type: "student",
-        label: "Student Research",
-        title: "Micro-Bridges for Socially Isolated Youth",
-        desc: "Combining low-effort technical interventions with mixed-methods analysis of extreme online discourse, this research works to safely transition reclusive and socially isolated youth into healthier support networks. This effort ranges from NLP-driven insights into how marginalized individuals express themselves in anonymous spaces to privacy-preserving check-in widgets that foster daily micro-connections.",
-        nickname: null,
-        venue: null,
-        link: null,
-        award: null,
-        ledBy: { name: "Sangeun Seo", url: "https://sangeunseo.com" },
-        image: "/research/isloation/hikikomori.png",
-      },
-      {
-        type: "pub",
-        label: "CHI 2023",
-        title: "AI Check-in Calls for Isolated Households",
-        desc: "Socially isolated individuals often fall outside the reach of traditional support systems. This research examines the real-world deployment of CareCall, an LLM-driven conversational agent that conducts proactive check-in calls, uncovering key benefits and challenges in delivering AI-based public health interventions at scale.",
-        nickname: "Deploying LLM-Driven Chatbots for Public Health Intervention",
-        venue: "ACM CHI 2023",
-        link: "https://dl.acm.org/doi/10.1145/3544548.3581503",
-        award: null,
-        ledBy: null,
-        image: "/research/isloation/carecall.jpg",
-      },
-      {
-        type: "pub",
-        label: "CHI 2025",
-        title: "Public Health Chatbots in Practice",
-        desc: "As public agencies increasingly turn to AI chatbots for population-level health monitoring, gaps emerge between institutional expectations and operational realities. This research investigates how agencies perceive, adopt, and struggle with AI-driven chatbot systems — offering design implications for sustainable public health infrastructure.",
-        nickname: "Public Agencies' Expectations of AI Chatbots for Health Monitoring",
-        venue: "ACM CHI 2025",
-        link: "https://dl.acm.org/doi/full/10.1145/3706598.3713593",
-        award: null,
-        ledBy: null,
-        image: "/research/isloation/publicchat.jpg",
-      },
-    ],
-  },
-  {
-    title: "AI-Mediated Communication",
-    description:
-      "Exploring trust, self-disclosure, and patient-centered interaction in AI-mediated communication.",
-    cards: [
-      {
-        type: "student",
-        label: "Student Research",
-        title: "Effects of Non-verbal Empathy Expressions by AI Peer Counselling Avatars",
-        desc: "Nonverbal cues such as eye contact, facial expressions, and head-nodding are crucial for conveying empathy in counseling. This project explores how AI avatars can express empathy nonverbally in real time, and whether that shapes how emotionally supported users feel in the peer support context.",
-        nickname: null,
-        venue: null,
-        link: null,
-        award: null,
-        ledBy: { name: "Jimin Lee", url: "https://jiminlee.me" },
-        image: "/research/ai_communication/truelisten.png",
-      },
-      {
-        type: "pub",
-        label: "CHI 2024",
-        title: "Memory-Aware Chatbots for Deeper Disclosure",
-        desc: "Self-disclosure is key to effective health support, yet users often hold back with AI systems. This research investigates how equipping LLM-driven chatbots with long-term memory affects users' willingness to open up, revealing design implications for building more trusted and continuous AI health companions.",
-        nickname: "Impact of Long-Term Memory on Self-Disclosure in LLM Chatbots",
-        venue: "ACM CHI 2024",
-        link: "https://doi.org/10.1145/3613904.3642420",
-        award: null,
-        ledBy: null,
-        image: "/research/ai_communication/memoryaware.jpg",
-      },
-    ],
-  },
-];
 
 export default function ResearchPage() {
   return (
@@ -140,7 +21,7 @@ export default function ResearchPage() {
 
         {/* Research themes */}
         <div className="space-y-20">
-          {THEMES.map((theme) => (
+          {RESEARCH_AREAS.map((theme) => (
             <section key={theme.title}>
               {/* Section header with left accent border */}
               <div className="border-l-4 pl-5 mb-3" style={{ borderColor: "#A61955" }}>
@@ -227,6 +108,26 @@ export default function ResearchPage() {
                           )}
                         </div>
                       )}
+                      {/* Additional publications */}
+                      {"additionalPubs" in card && Array.isArray(card.additionalPubs) && card.additionalPubs.map((pub: { nickname: string; venue: string; link: string }) => (
+                        <div key={pub.nickname} className="mt-2 pt-2 flex items-start justify-between gap-2">
+                          <div className="min-w-0">
+                            <p className="text-xs font-semibold text-stone-700 break-words">{pub.nickname}</p>
+                            <p className="text-xs text-stone-400">{pub.venue}</p>
+                          </div>
+                          {pub.link && (
+                            <a
+                              href={pub.link}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="shrink-0 text-xs font-bold px-3 py-1.5 rounded-md text-white transition-opacity hover:opacity-80"
+                              style={{ backgroundColor: "#A61955CC" }}
+                            >
+                              DOI
+                            </a>
+                          )}
+                        </div>
+                      ))}
                     </div>
                   </div>
                 ))}

@@ -1,8 +1,28 @@
 import fs from "fs";
 import path from "path";
+import React from "react";
 import { PUBLICATIONS, RESEARCH_AREAS, NEWS } from "@/lib/data";
 import HeroSection from "@/components/HeroSection";
 import LabPhotoCarousel from "@/components/LabPhotoCarousel";
+
+function renderContent(text: string) {
+  const regex = /\[([^\]]+)\]\(([^)]+)\)/g;
+  const result: React.ReactNode[] = [];
+  let lastIndex = 0;
+  let match;
+  while ((match = regex.exec(text)) !== null) {
+    if (match.index > lastIndex) result.push(text.slice(lastIndex, match.index));
+    result.push(
+      <a key={match.index} href={match[2]} target="_blank" rel="noopener noreferrer"
+        className="text-[#A61955] hover:underline font-medium">
+        {match[1]}
+      </a>
+    );
+    lastIndex = match.index + match[0].length;
+  }
+  if (lastIndex < text.length) result.push(text.slice(lastIndex));
+  return result;
+}
 
 function formatDate(d: string) {
   const parts = d.split("-");
@@ -64,7 +84,7 @@ export default function HomePage() {
                 const cardInner = (
                   <div className="bg-white rounded-[10px] px-5 py-4">
                     <p className="text-stone-900 text-sm font-bold leading-snug mb-1 text-left">{item.title}</p>
-                    <p className="text-stone-600 text-xs leading-relaxed text-left">{item.content}</p>
+                    <p className="text-stone-600 text-xs leading-relaxed text-left">{renderContent(item.content)}</p>
                     <p className="text-stone-400 text-xs mt-1.5 text-left">{formatDate(item.date)}</p>
                   </div>
                 );

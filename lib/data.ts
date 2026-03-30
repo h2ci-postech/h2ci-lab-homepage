@@ -49,7 +49,7 @@ export const MEMBERS: Member[] = [
     name: "Eunkyung Jo",
     nameKr: "조은경",
     role: "pi",
-    roleLabel: "Faculty",
+    roleLabel: "Assistant Professor",
     affiliation: "Assistant Professor, Dept. of CSE / GSAI, POSTECH",
     bio: "I research at the intersection of HCI, CSCW, and Health. My work examines how health monitoring technology can better account for the infrastructural complexity of clinical and public health care — through interviews, surveys, log analysis, system prototyping, and real-world field deployments.",
     research: [],
@@ -218,6 +218,19 @@ export const PUBLICATIONS: Publication[] = [
     doi: "https://dl.acm.org/doi/10.1145/3491102.3502206",
     tags: ["Clinical Decision Support", "Psychiatric Care", "Longitudinal Health"],
   },
+    {
+    id: "pub-cscw2022_2",
+    title:
+      "Understanding Cultural Influence on Perspectives Around Contact Tracing Strategies",
+    authors:
+      "Xi Lu, Eunkyung Jo, Seora Park, Hwajung Hong, Yunan Chen, Daniel A. Epstein",
+    venue: "PACM Human-Computer Interaction 6 (CSCW2), 2022",
+    venueShort: "CSCW 2022",
+    year: 2022,
+    type: "journal",
+    doi: "https://doi.org/10.1145/3555569",
+    tags: ["Autism", "Caregiver Technology", "Data-Driven Intervention"],
+  },
   {
     id: "pub-cscw2022",
     title:
@@ -229,6 +242,19 @@ export const PUBLICATIONS: Publication[] = [
     year: 2022,
     type: "journal",
     doi: "https://dl.acm.org/doi/10.1145/3512939",
+    tags: ["Autism", "Caregiver Technology", "Data-Driven Intervention"],
+  },
+  {
+    id: "pub-chi2021",
+    title:
+      "Comparing Perspectives around Human and Technology Support for Contact Tracing",
+    authors:
+      "Xi Lu, Tera L. Reynolds, Eunkyung Jo, Hwajung Hong, Xinru Page, Yunan Chen, Daniel A. Epstein",
+    venue: "CHI 2021",
+    venueShort: "CHI 2021",
+    year: 2021,
+    type: "conference",
+    doi: "https://doi.org/10.1145/3411764.3445669",
     tags: ["Autism", "Caregiver Technology", "Data-Driven Intervention"],
   },
   {
@@ -255,6 +281,30 @@ export const PUBLICATIONS: Publication[] = [
     doi: "https://dl.acm.org/doi/10.1145/3313831.3376359",
     tags: ["Parenting", "Self-Tracking", "Co-design"],
   },
+  {
+    id: "pub-cscw2019",
+    title:
+      "The Social Infrastructure of Co-spaces: Home, Work, and Sociable Places for Digital Nomads",
+    authors:
+      "Ahreum Lee, Austin L. Toombs, Ingrid Erickson, David Nemer, Eunkyung Jo, Yushen Ho, Zhaung Guo",
+    venue: "PACM Human-Computer Interaction 3 (CSCW1), 2019",
+    venueShort: "CSCW 2019",
+    year: 2019,
+    type: "journal",
+    doi: "https://doi.org/10.1145/3359244",
+    tags: ["Family Technology", "Mealtime", "Automated Tracking"],
+  },
+  {
+    id: "pub-ph2019",
+    title: "Toward Becoming a Better Self: Understanding Self-Tracking Experiences of Adolescents with Autism Spectrum Disorder Using Custom Trackers",
+    authors: "Sung-In Kim, Eunkyung Jo, Myeonghan Ryu, Inha Cha, Young-Ho Kim, Heejeong Yoo, Hwajung Hong",
+    venue: "Pervasive Health 2019",
+    venueShort: "Pervasive Health 2019",
+    year: 2019,
+    type: "conference",
+    doi: "https://doi.org/10.1145/3329189.3329209",
+    tags: ["Parenting", "Self-Tracking", "Co-design"],
+  },
 ];
 
 // ============================================================
@@ -269,45 +319,65 @@ export interface NewsItem {
   category: NewsCategory;
   title: string;
   content: string;
-  link?: string;       // optional URL
+  link?: string;       // optional URL (makes whole card clickable)
 }
 
 export const NEWS: NewsItem[] = [
   {
+    id: "news-chi2026",
+    date: "2026-04",
+    category: "event",
+    title: "✈️ Dr. Jo is attending CHI 2026!",
+    content:
+      'Dr. Jo will give a talk at the [Dissertation Awards session](https://programs.sigchi.org/chi/2026/program/content/224321) and serve as a session chair for [Negotiating Health, Identity, and Belief](https://programs.sigchi.org/chi/2026/program/session/225068). Come say hi!',
+  },
+  {
     id: "news-1",
     date: "2026-03",
     category: "misc",
-    title: "NRF Early Career Research Grant",
-    content: "H2CI Lab has been selected for the National Research Foundation of Korea's Early Career Research Grant.",
+    title: "💰 H2CI Lab receives the NRF Early Career Research Grant!",
+    content: "First external funding! Our proposal on \"Development and empirical validation of Multimodal AI Agents for Personalized Nonverbal Empathic Interactions\" have been selected for the Early-Career Research Grant by the National Research Foundation (2026-2031).",
   },
   {
     id: "news-2",
     date: "2026-02",
     category: "award",
     title: "🏆 2026 ACM SIGCHI Outstanding Dissertation Award",
-    content: "Dr. Jo has been recognized with the ACM SIGCHI Outstanding Dissertation Award.",
-    link: "https://medium.com/sigchi/2026-acm-sigchi-awards-and-special-recognitions-d942983d9228",
+    content: "Dr. Jo has been recognized with the [ACM SIGCHI Outstanding Dissertation Award](https://medium.com/sigchi/2026-acm-sigchi-awards-and-special-recognitions-d942983d9228).",
+  },
+  {
+    id: "news-nara",
+    date: "2026-02",
+    category: "join",
+    title: "👋 New member joins the lab!",
+    content: "Nara has joined the lab as an undergrad intern.",
   },
   {
     id: "news-3",
     date: "2026-02",
     category: "join",
-    title: "🎉 H2CI Lab is officially open!",
+    title: "👋 Sangeun, Jimin, and Jumi have joined the lab as the first members of the H2CI Lab!",
     content: "We are excited to welcome our first members — Sangeun, Jimin, and Jumi!",
+  },
+  {
+    id: "news-snu-talk",
+    date: "2025-12",
+    category: "talk",
+    title: "🎤 Dr. Jo gave a talk at the AI/Computing Frontier School at SNU!",
+    content: "Dr. Jo gave a talk at the [AI/Computing Frontier School at Seoul National University](https://computing-ai-school-2025.snu.ac.kr/).",
   },
   {
     id: "news-5",
     date: "2025-09",
     category: "misc",
-    title: "ACM CHI 2026 Associate Chair",
-    content: "Dr. Jo served as an Associate Chair for the Understanding People — Qualitative Methods Subcommittee at CHI 2026.",
-    link: "https://chi2026.acm.org/authors/papers/selecting-a-subcommittee/#understanding_qualitative",
+    title: "📋 Dr. Jo serves as an Associate Chair at ACM CHI 2026!",
+    content: "Dr. Jo served as an [Associate Chair for the Understanding People — Qualitative Methods Subcommittee at CHI 2026](https://chi2026.acm.org/authors/papers/selecting-a-subcommittee/#understanding_qualitative).",
   },
   {
     id: "news-4",
     date: "2025-07",
     category: "misc",
-    title: "Dr. Jo joins POSTECH",
+    title: "🎉 Dr. Jo joins POSTECH as an Assistant Professor!",
     content: "Dr. Jo has joined POSTECH as an Assistant Professor in the Department of Computer Science and Engineering and the Graduate School of Artificial Intelligence.",
     link: "https://cse.postech.ac.kr/csepostech/news/new.do?mode=view&articleNo=24587&title=%EC%A1%B0%EC%9D%80%EA%B2%BD+%EA%B5%90%EC%88%98+%EB%B6%80%EC%9E%84",
   },
@@ -333,25 +403,121 @@ export const CATEGORY_COLOR: Record<NewsCategory, string> = {
 
 export const RESEARCH_AREAS = [
   {
-    icon: "🌱",
-    title: "Technology for Wellbeing",
+    icon: "💬",
+    title: "Multimodal Agents for Empathic Communication",
     description:
-      "Designing and evaluating technologies that support the physical and mental wellbeing of individuals and families.",
-    tags: [],
+      "Developing multimodal agents to convey care and empathy.",
+    cards: [
+      {
+        type: "student",
+        label: "Student Research",
+        title: "Effects of Non-verbal Empathy Expressions by AI Peer Counselling Avatars",
+        desc: "Nonverbal cues such as eye contact, facial expressions, and head-nodding are crucial for conveying empathy in counseling. This project explores how AI avatars can express empathy nonverbally in real time, and whether that shapes how emotionally supported users feel in the peer support context.",
+        nickname: null,
+        venue: null,
+        link: null,
+        award: null,
+        ledBy: { name: "Jimin Lee", url: "https://jiminlee.me" },
+        image: "/research/ai_communication/truelisten.png",
+      },
+      {
+        type: "pub",
+        label: "CHI 2024",
+        title: "Long-Term Memory in LLM Chatbots",
+        desc: "Long-term memory is crucial in supporting people's longitudinal interactions with chatbots. We study how we can better design long-term memory to improve interactions with LLM-driven chatbots.",
+        nickname: "CareCall LTM",
+        venue: "ACM CHI 2024",
+        link: "https://doi.org/10.1145/3613904.3642420",
+        award: null,
+        ledBy: null,
+        image: "/research/ai_communication/memoryaware.jpg",
+      },
+    ],
   },
   {
     icon: "🫂",
     title: "Social Isolation Intervention",
     description:
-      "Investigating technological interventions and monitoring systems for individuals experiencing social isolation.",
-    tags: [],
+      "Exploring how technology could better support the health and wellbeing of socially isolated individuals.",
+    cards: [
+      {
+        type: "student",
+        label: "Student Research",
+        title: "Micro-Bridges for Socially Isolated Youth",
+        desc: "Combining low-effort technical interventions with mixed-methods analysis of extreme online discourse, this research works to safely transition reclusive and socially isolated youth into healthier support networks. This effort ranges from NLP-driven insights into how marginalized individuals express themselves in anonymous spaces to privacy-preserving check-in widgets that foster daily micro-connections.",
+        nickname: null,
+        venue: null,
+        link: null,
+        award: null,
+        ledBy: { name: "Sangeun Seo", url: "https://sangeunseo.com" },
+        image: "/research/isloation/hikikomori.png",
+      },
+      {
+        type: "pub",
+        label: "CHI 2023",
+        title: "LLM-Driven Chatbots for Public Health Monitoring",
+        desc: "We study how LLM-driven public health monitoring chatbots are perceived by different stakeholders, such as socially isolated individuals, frontline health workers, decision-makers, and developers.",
+        nickname: "CareCall",
+        venue: "ACM CHI 2023",
+        link: "https://dl.acm.org/doi/10.1145/3544548.3581503",
+        award: null,
+        ledBy: null,
+        image: "/research/isloation/carecall.jpg",
+        additionalPubs: [
+          { nickname: "CareCall Public Agencies", venue: "ACM CHI 2025", link: "https://dl.acm.org/doi/full/10.1145/3706598.3713593" },
+        ],
+      },
+    ],
   },
   {
-    icon: "💬",
-    title: "AI-Mediated Communication",
+    icon: "🌱",
+    title: "Mindful and Collaborative Health Monitoring",
     description:
-      "Exploring trust, self-disclosure, and patient-centered interaction in AI-mediated communication.",
-    tags: [],
+      "Designing health monitoring tools to help people interact with technology in a more mindful and meaningful way.",
+    cards: [
+      {
+        type: "student",
+        label: "Student Research",
+        title: "Digital Wellbeing Intervention",
+        desc: "Exploring self-control technologies that help people stay in charge of their own screen time. With a focus on infinite scrolling environments like short-form video, we investigate how to preserve human autonomy and prevent mindless scrolling through thoughtful technical interventions.",
+        nickname: null,
+        venue: null,
+        link: null,
+        award: null,
+        ledBy: { name: "Jumi Kim", url: "https://jglosa.github.io" },
+        image: "/research/wellbeing/digitalwellbeing.png",
+      },
+      {
+        type: "pub",
+        label: "CHI 2022",
+        title: "Clinician Tools for Flexible Care Planning",
+        desc: "We study how flexible digital tools can support clinician planning and patient-centered communication.",
+        nickname: "AT Planner",
+        venue: "ACM CHI 2022",
+        link: "https://dl.acm.org/doi/10.1145/3491102.3502206",
+        award: null,
+        ledBy: null,
+        image: "/research/wellbeing/psy_drugs.png",
+        additionalPubs: [
+          { nickname: "AT Annotator", venue: "PACM HCI CSCW 2024", link: "https://dl.acm.org/doi/10.1145/3686997" },
+        ],
+      },
+      {
+        type: "pub",
+        label: "CSCW 2022",
+        title: "Data-Driven Interventions for Collaborative Family Practices",
+        desc: "Family members often engage in collaborative health monitoring. We develop novel systems to support family members with various health needs collaborate among themselves and with healthcare providers.",
+        nickname: "GeniAuti",
+        venue: "PACM HCI CSCW 2022",
+        link: "https://dl.acm.org/doi/10.1145/3512939",
+        award: null,
+        ledBy: null,
+        image: "/research/wellbeing/genauti.png",
+        additionalPubs: [
+          { nickname: "MAMAS", venue: "PACM HCI CSCW 2020", link: "https://dl.acm.org/doi/10.1145/3392876" },
+        ],
+      },
+    ],
   },
 ];
 
@@ -359,7 +525,7 @@ export const COLLABORATORS = [
   {
     name: "Hyunjoo Na",
     affiliation: "The Catholic University of Korea",
-    website: "https://nursing.catholic.ac.kr/html/sub02/sub01_2_2.jsp",
+    website: "https://nursing.catholic.ac.kr/nursing/research/DFHN2.do?mode=view&proSeq=1286",
   },
   {
     name: "Inseok Hwang",

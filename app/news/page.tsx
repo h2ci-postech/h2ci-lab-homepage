@@ -1,10 +1,30 @@
 import type { Metadata } from "next";
+import React from "react";
 import { NEWS } from "@/lib/data";
 
 export const metadata: Metadata = {
   title: "News",
   description: "Latest news from the H2CI Lab at POSTECH.",
 };
+
+function renderContent(text: string) {
+  const regex = /\[([^\]]+)\]\(([^)]+)\)/g;
+  const result: React.ReactNode[] = [];
+  let lastIndex = 0;
+  let match;
+  while ((match = regex.exec(text)) !== null) {
+    if (match.index > lastIndex) result.push(text.slice(lastIndex, match.index));
+    result.push(
+      <a key={match.index} href={match[2]} target="_blank" rel="noopener noreferrer"
+        className="text-[#A61955] hover:underline font-medium">
+        {match[1]}
+      </a>
+    );
+    lastIndex = match.index + match[0].length;
+  }
+  if (lastIndex < text.length) result.push(text.slice(lastIndex));
+  return result;
+}
 
 function formatDate(d: string) {
   const parts = d.split("-");
@@ -24,7 +44,7 @@ function NewsCard({ item, isLeft }: { item: (typeof NEWS)[number]; isLeft: boole
           {item.title}
         </p>
         <p className="text-stone-600 text-sm leading-relaxed text-left">
-          {item.content}
+          {renderContent(item.content)}
         </p>
         <p className="text-stone-400 text-xs mt-2 text-left">
           {formatDate(item.date)}
