@@ -149,7 +149,7 @@ export default function HomePage() {
             {RESEARCH_AREAS.map((area) => (
               <div key={area.title} className="text-left">
                 <div className="text-5xl mb-5">{area.icon}</div>
-                <h3 className="font-bold text-stone-900 text-lg mb-3">{area.title}</h3>
+                <h3 className="font-bold text-stone-900 text-lg mb-3 min-h-[3.5rem]">{area.title}</h3>
                 <p className="text-stone-500 text-sm leading-relaxed">{area.description}</p>
               </div>
             ))}

@@ -62,7 +62,7 @@ export default function ResearchPage() {
                       )}
 
                       {/* Title */}
-                      <h3 className="font-bold text-stone-900 text-sm leading-snug mb-2">
+                      <h3 className="font-bold text-stone-900 text-sm leading-snug mb-2 min-h-[2.5rem]">
                         {card.title}
                       </h3>
 
