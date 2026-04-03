@@ -10,6 +10,7 @@ const navLinks = [
   { href: "/people", label: "People" },
   { href: "/publications", label: "Publications" },
   { href: "/news", label: "News" },
+  { href: "/gallery", label: "Gallery" },
 ];
 
 export default function Navbar() {
@@ -79,7 +80,7 @@ export default function Navbar() {
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src="/logo_color.svg"
+                src="/logo/logo_color.svg"
                 alt="H2CI Lab Logo"
                 className="w-full h-full object-contain"
               />

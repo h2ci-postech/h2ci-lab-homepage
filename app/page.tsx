@@ -31,12 +31,12 @@ function formatDate(d: string) {
 }
 
 export default function HomePage() {
-  const labPhotoDir = path.join(process.cwd(), "public", "lab_photo");
+  const labPhotoDir = path.join(process.cwd(), "public", "main_image");
   const labPhotos = fs
     .readdirSync(labPhotoDir)
     .filter((f) => /\.(jpe?g|png|webp|gif)$/i.test(f))
     .sort((a, b) => b.localeCompare(a))
-    .map((f) => `/lab_photo/${f}`);
+    .map((f) => `/main_image/${f}`);
 
   const recentPubs = PUBLICATIONS.slice(0, 5);
   const recentNews = [...NEWS].sort((a, b) => b.date.localeCompare(a.date)).slice(0, 5);

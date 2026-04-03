@@ -51,7 +51,7 @@ export default function HeroSection() {
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src="/logo_white.svg"
+              src="/logo/logo_white.svg"
               alt="H2CI Lab"
               style={{ height: "320px", width: "auto" }}
             />

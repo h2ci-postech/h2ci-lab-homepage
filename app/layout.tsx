@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     siteName: "H2CI Lab @ POSTECH",
   },
   icons: {
-    icon: "/logo_color.svg",
+    icon: "/logo/logo_color.svg",
   },
 };
 
