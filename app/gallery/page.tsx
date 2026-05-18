@@ -21,33 +21,25 @@ function formatDate(folder: string) {
   });
 }
 
-// Metadata for named (non-date) folders
-// sortKey: YYYYMMDD string used for ordering alongside date folders
-const NAMED_EVENTS: Record<string, { sortKey: string; label: string; caption: ReactNode }> = {
-  "CHI2026": {
-    sortKey: "20260415",
-    label: "Apr 15, 2026",
-    caption: (
-      <>
-        Dr. Jo received{" "}
-        <a
-          href="https://medium.com/sigchi/2026-acm-sigchi-awards-and-special-recognitions-d942983d9228"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="underline hover:text-stone-600"
-        >
-          the 2026 ACM SIGCHI Outstanding Dissertation Award
-        </a>{" "}
-        at CHI 2026! 🎉
-      </>
-    ),
-  },
-};
-
 const CAPTIONS: Record<string, ReactNode> = {
+  "20260415": (
+    <>
+      Dr. Jo received{" "}
+      <a
+        href="https://medium.com/sigchi/2026-acm-sigchi-awards-and-special-recognitions-d942983d9228"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="underline hover:text-stone-600"
+      >
+        the 2026 ACM SIGCHI Outstanding Dissertation Award
+      </a>{" "}
+      at CHI 2026! 🎉
+    </>
+  ),
   "20260320": "Congratulations to Dr. Jo on receiving the 2026 ACM SIGCHI Outstanding Dissertation Award 🎉",
   "20260326": "Official lab photo shoot 📸",
   "20260402": "A spring day out enjoying the cherry blossoms in Gyeongju 🌸",
+  "20260515": "Celebrating our first Teacher's Day together 🌼",
 };
 
 export default function GalleryPage() {
@@ -57,7 +49,7 @@ export default function GalleryPage() {
     .readdirSync(galleryRoot)
     .filter((name) => {
       const full = path.join(galleryRoot, name);
-      return fs.statSync(full).isDirectory() && (/^\d{8}$/.test(name) || name in NAMED_EVENTS);
+      return fs.statSync(full).isDirectory() && /^\d{8}$/.test(name);
     });
 
   const groups = allFolders
@@ -69,10 +61,6 @@ export default function GalleryPage() {
         .sort((a, b) => a.localeCompare(b))
         .map((f) => `/gallery/${folder}/${f}`);
 
-      if (folder in NAMED_EVENTS) {
-        const meta = NAMED_EVENTS[folder];
-        return { folder, sortKey: meta.sortKey, label: meta.label, caption: meta.caption, images };
-      }
       return { folder, sortKey: folder, label: formatDate(folder), caption: CAPTIONS[folder] ?? "", images };
     })
     .sort((a, b) => b.sortKey.localeCompare(a.sortKey)); // newest first
