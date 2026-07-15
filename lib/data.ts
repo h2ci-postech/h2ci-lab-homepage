@@ -127,8 +127,8 @@ export const MEMBERS: Member[] = [
     photo: "/people/naralee.jpeg",
   },
   {
-    id: "yonggi-chin",
-    name: "Yonggi Chin",
+    id: "younggee-chin",
+    name: "Younggee Chin",
     nameKr: "진용기",
     role: "ms",
     roleLabel: "M.S. Student @ GSAI",
@@ -136,7 +136,7 @@ export const MEMBERS: Member[] = [
     bio: "",
     research: [],
     startYear: 2026,
-    photo: "",
+    photo: "/people/youngeechin.jpg",
   },
   {
     id: "eugene-choi",
