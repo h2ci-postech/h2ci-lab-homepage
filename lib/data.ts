@@ -114,19 +114,6 @@ export const MEMBERS: Member[] = [
     photo: "/people/jumikim.jpeg",
   },
   {
-    id: "nara-lee",
-    name: "Nara Lee",
-    nameKr: "이나라",
-    role: "ms",
-    roleLabel: "M.S. Student @ GSAI",
-    affiliation: "POSTECH",
-    bio: "",
-    research: [],
-    email: "02leenara@postech.ac.kr",
-    startYear: 2026,
-    photo: "/people/naralee.jpeg",
-  },
-  {
     id: "younggee-chin",
     name: "Younggee Chin",
     nameKr: "진용기",
@@ -135,21 +122,22 @@ export const MEMBERS: Member[] = [
     affiliation: "POSTECH",
     bio: "",
     research: [],
+    email: "younggeechin@postech.ac.kr",
     startYear: 2026,
-    photo: "/people/youngeechin.jpg",
+    photo: "/people/youngeechin.png",
   },
   {
-    id: "eugene-choi",
-    name: "Eugene Choi",
-    nameKr: "최유진",
+    id: "nara-lee",
+    name: "Nara Lee",
+    nameKr: "이나라",
     role: "intern",
     roleLabel: "Undergraduate Intern",
     affiliation: "POSTECH",
     bio: "",
     research: [],
-    email: "eugene@snu.ac.kr",
+    email: "02leenara@postech.ac.kr",
     startYear: 2026,
-    photo: "/people/eugenechoi.png",
+    photo: "/people/naralee.jpeg",
   },
 ];
 
@@ -543,6 +531,15 @@ export const RESEARCH_AREAS = [
         ],
       },
     ],
+  },
+];
+
+export const FORMER_INTERNS = [
+  {
+    name: "Eugene Choi",
+    affiliation: "Seoul National University",
+    period: "Summer 2026",
+    email: "eugene@snu.ac.kr",
   },
 ];
 
