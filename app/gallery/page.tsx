@@ -8,7 +8,17 @@ export const metadata: Metadata = {
   description: "Photo gallery of the H2CI Lab at POSTECH.",
 };
 
+const CUSTOM_LABELS: Record<string, string> = {
+  "2026_summer": "Summer, 2026",
+};
+
+// Override sort key for non-YYYYMMDD folders to control ordering
+const CUSTOM_SORT_KEYS: Record<string, string> = {
+  "2026_summer": "20260901",
+};
+
 function formatDate(folder: string) {
+  if (CUSTOM_LABELS[folder]) return CUSTOM_LABELS[folder];
   // folder: YYYYMMDD
   const year = folder.slice(0, 4);
   const month = Number(folder.slice(4, 6));
@@ -40,6 +50,7 @@ const CAPTIONS: Record<string, ReactNode> = {
   "20260326": "Official lab photo shoot 📸",
   "20260402": "A spring day out enjoying the cherry blossoms in Gyeongju 🌸",
   "20260515": "Celebrating our first Teacher's Day together 🌼",
+  "2026_summer": "A summer of workshops, team dinners, and birthday celebrations ☀️",
 };
 
 export default function GalleryPage() {
@@ -49,7 +60,7 @@ export default function GalleryPage() {
     .readdirSync(galleryRoot)
     .filter((name) => {
       const full = path.join(galleryRoot, name);
-      return fs.statSync(full).isDirectory() && /^\d{8}$/.test(name);
+      return fs.statSync(full).isDirectory() && (/^\d{8}$/.test(name) || name in CUSTOM_LABELS);
     });
 
   const groups = allFolders
@@ -58,10 +69,10 @@ export default function GalleryPage() {
       const images = fs
         .readdirSync(dir)
         .filter((f) => /\.(jpe?g|png|webp|gif)$/i.test(f))
-        .sort((a, b) => a.localeCompare(b))
+        .sort((a, b) => folder in CUSTOM_LABELS ? b.localeCompare(a) : a.localeCompare(b))
         .map((f) => `/gallery/${folder}/${f}`);
 
-      return { folder, sortKey: folder, label: formatDate(folder), caption: CAPTIONS[folder] ?? "", images };
+      return { folder, sortKey: CUSTOM_SORT_KEYS[folder] ?? folder, label: formatDate(folder), caption: CAPTIONS[folder] ?? "", images };
     })
     .sort((a, b) => b.sortKey.localeCompare(a.sortKey)); // newest first
 
