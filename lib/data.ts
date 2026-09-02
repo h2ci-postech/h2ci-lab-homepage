@@ -337,6 +337,13 @@ export interface NewsItem {
 
 export const NEWS: NewsItem[] = [
   {
+    id: "news-jul2026-join",
+    date: "2026-07",
+    category: "join",
+    title: "👋 New member joins the lab!",
+    content: "Younggee has joined the lab as a Master's student.",
+  },
+  {
     id: "news-chi2026",
     date: "2026-04",
     category: "event",
