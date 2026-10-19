@@ -10,8 +10,8 @@ export const metadata: Metadata = {
 
 const CUSTOM_LABELS: Record<string, string> = {
   "2026_summer": "Summer, 2026",
-  "2026_CHI": "CHI 2026",
-  "2026_CSCW": "CSCW 2026",
+  "2026_CHI": "CHI 2026, Apr 13-17",
+  "2026_CSCW": "CSCW 2026, Oct 10-14",
 };
 
 // Override sort key for non-YYYYMMDD folders to control ordering
