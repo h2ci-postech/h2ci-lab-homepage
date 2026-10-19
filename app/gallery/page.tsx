@@ -10,11 +10,15 @@ export const metadata: Metadata = {
 
 const CUSTOM_LABELS: Record<string, string> = {
   "2026_summer": "Summer, 2026",
+  "2026_CHI": "CHI 2026",
+  "2026_CSCW": "CSCW 2026",
 };
 
 // Override sort key for non-YYYYMMDD folders to control ordering
 const CUSTOM_SORT_KEYS: Record<string, string> = {
   "2026_summer": "20260901",
+  "2026_CHI": "20260415",
+  "2026_CSCW": "20261015",
 };
 
 function formatDate(folder: string) {
@@ -32,7 +36,7 @@ function formatDate(folder: string) {
 }
 
 const CAPTIONS: Record<string, ReactNode> = {
-  "20260415": (
+  "2026_CHI": (
     <>
       Dr. Jo received{" "}
       <a
@@ -51,6 +55,43 @@ const CAPTIONS: Record<string, ReactNode> = {
   "20260402": "A spring day out enjoying the cherry blossoms in Gyeongju 🌸",
   "20260515": "Celebrating our first Teacher's Day together 🌼",
   "2026_summer": "A summer of workshops, team dinners, and birthday celebrations ☀️",
+  "20260918": (
+    <>
+      Wonderful to have{" "}
+      <a
+        href="https://kyuhajung.notion.site/website"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="underline hover:text-stone-600"
+      >
+        Kyuha Jung
+      </a>{" "}
+      and{" "}
+      <a
+        href="https://rzehrung.name/"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="underline hover:text-stone-600"
+      >
+        Rachel Zehrung
+      </a>{" "}
+      from UC Irvine visit the lab! Thank you for the great conversations and lovely gifts 🎁
+    </>
+  ),
+  "2026_CSCW": (
+    <>
+      The H2CI Lab attended{" "}
+      <a
+        href="https://cscw.acm.org/2026/"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="underline hover:text-stone-600"
+      >
+        CSCW 2026
+      </a>{" "}
+      in Salt Lake City 🏔️ Great talks, great people, and great memories!
+    </>
+  ),
 };
 
 export default function GalleryPage() {
@@ -69,7 +110,7 @@ export default function GalleryPage() {
       const images = fs
         .readdirSync(dir)
         .filter((f) => /\.(jpe?g|png|webp|gif)$/i.test(f))
-        .sort((a, b) => folder in CUSTOM_LABELS ? b.localeCompare(a) : a.localeCompare(b))
+        .sort((a, b) => a.localeCompare(b))
         .map((f) => `/gallery/${folder}/${f}`);
 
       return { folder, sortKey: CUSTOM_SORT_KEYS[folder] ?? folder, label: formatDate(folder), caption: CAPTIONS[folder] ?? "", images };
